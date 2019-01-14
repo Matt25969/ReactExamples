@@ -1,36 +1,17 @@
 import React, { Component } from 'react';
 
-class Apple extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: 'Initial data...'
-    }
-    this.updateState = (e) => {
-      e.preventDefault();
-      this.setState({
-        data: "dogs"
-      });
-    }
-
-  } //parent component
-  render() {
-    return (
-      <Child data={ this.state.data } updateData={ this.updateState } />
-      );
-  }
-}
-export default Apple;
-
 class Child extends Component {
   render() {
     return (
       <form>
-        <h1>{ this.props.data }</h1>
-        <button onClick={ this.props.updateData }>
+        <h1>{this.props.data}</h1>
+        <p>When the button below is clicked the function that is passed from the parent is called </p>
+        <button onClick={this.props.passedFunction}>
           Update
         </button>
       </form>
-      );
+    );
   }
 }
+
+export default Child;

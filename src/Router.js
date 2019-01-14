@@ -4,6 +4,12 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 
 import Home from './Home';
+import ParentChild from './ParentChild';
+import DefaultProps from './DefaultProps';
+import Topics from './Topics';
+import FilmRequest from './FilmRequest';
+import FilmRequestWithRef from './FilmRequestWithRef';
+import MoreRefs from './MoreRefs';
 
 function RoutingExample() {
   return (
@@ -14,128 +20,90 @@ function RoutingExample() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/parentChild">How to override from the Child/Parent</Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <Link to="/defaultProps">Default Props</Link>
           </li>
-      <li>
-            <Link to="/autoRequest">Automatic Request</Link>
+          <li>
+            <Link to="/defaultPropsWithProps">Default Props with Props</Link>
+          </li>
+          <li>
+            <Link to="/topics">Routing within routing!</Link>
+          </li>
+          <li>
+            <Link to="/filmRequest">Basic Frontend for OMDB</Link>
+          </li>
+          <li>
+            <Link to="/filmRequestWithRefs">Basic Frontend for OMDB using Refs</Link>
+          </li>
+          <li>
+            <Link to="/refExample">Ref Example</Link>
+          </li>
+          <li>
+            <Link to="/moreWorkWithRefs">Working with Refs and Child components</Link>
           </li>
         </ul>
 
         <hr />
 
         <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} /> 
+        <Route path="/parentChild" component={ParentChild} />
+        <Route path="/defaultProps" component={DefaultProps} />
+        <Route path="/defaultPropsWithProps" render={(props) => <DefaultProps exampleProp="Some data input as Props" />} />
         <Route path="/topics" component={Topics} />
-      <Route path="/autoRequest" component={AutoRequest} />
-      
+        <Route path="/filmRequest" component={FilmRequest} />
+        <Route path="/filmRequestWithRefs" component={FilmRequestWithRef} />
+        <Route path="/refExample" component={RefExample} />
+        <Route path="/moreWorkWithRefs" component={MoreRefs} />
+
       </div>
     </Router>
   );
 }
 
-class About extends Component {
-    
-constructor(props) {
+class RefExample extends Component {
+  constructor(props) {
     super(props);
     this.state = {
-      data: 'Initial data'
+      data: 'Initial data...'
     }
-}
-         
-   updateState = (event) => {
-       // this prevent default is to stop the component from being re rendered
-      event.preventDefault();
+    this.updateState = (e) => {
+      e.preventDefault();
       this.setState({
-        data: "Overridden from child"
+        data: e.target.value
       });
     }
-    
-  render() {
-      return (
-    <div>
-      <h2>About</h2>
-         
-      <Child data={ this.state.data } passedFunction={ this.updateState } />
-    </div>
-  );
-}
-}
-
-    class Child extends Component {
+    this.clearInput = (e) => {
+      e.preventDefault();
+      this.setState({
+        data: ""
+      });
+      this.textInput.focus();
+    }
+  }
   render() {
     return (
       <form>
-        <h1>{ this.props.data }</h1>
-        <button onClick={ this.props.passedFunction }>
-          Update
-        </button>
+        <input type="text" value={this.state.data} onChange={this.updateState} ref={(input) => this.textInput = input} />
+        <h4>{this.state.data}</h4>
+        <button onClick={this.clearInput}>
+          CLEAR
+          </button>
       </form>
-      );
+    );
   }
 }
-    
-function Topics({ match }) {
-  return (
-    <div>
-      <h2>Topics</h2>
-      <ul>
-        <li>
-          <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-        </li>
-      </ul>
 
-      <Route path={`${match.path}/:topicId`} component={Topic} />
-      <Route exact path={match.path}
-        render={() => <h3>Please select a topic.</h3>}
-      />
-    </div>
-  );
-}
 
-function Topic({ match }) {
-  return (
-    <div>
-      <h3>{match.params.topicId}</h3>
-    </div>
-  );
-}
 
-class AutoRequest extends Component {
-    
-    constructor(props) {
-    super(props);
-    this.state = {
-      data: ''
-    }
-}
-    componentWillMount(){
-		var yourAPIKey = "";
-        axios.get("http://www.omdbapi.com/?apikey="+yourAPIKey).then(response => {
-                   
-        this.state.data = response.data.Title;
-        
-    });
-    }
-    
-    render(){
-    
-    
-    return (
-    <div>
-        <h4>{this.state.data}</h4>
-    </div>
-    )
-    }
-        
-}
+
+
+
+
+
+
+
+
 
 export default RoutingExample;
