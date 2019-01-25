@@ -10,6 +10,7 @@ import Topics from './Topics';
 import FilmRequest from './FilmRequest';
 import FilmRequestWithRef from './FilmRequestWithRef';
 import MoreRefs from './MoreRefs';
+import Atform from './Atform';
 
 function RoutingExample() {
   return (
@@ -43,6 +44,9 @@ function RoutingExample() {
           <li>
             <Link to="/moreWorkWithRefs">Working with Refs and Child components</Link>
           </li>
+          <li>
+            <Link to="/atform">Link to Automated Testing Exercise Form</Link>
+          </li>
         </ul>
 
         <hr />
@@ -56,6 +60,8 @@ function RoutingExample() {
         <Route path="/filmRequestWithRefs" component={FilmRequestWithRef} />
         <Route path="/refExample" component={RefExample} />
         <Route path="/moreWorkWithRefs" component={MoreRefs} />
+        
+        <Route path="/atform" component={Atform} />
 
       </div>
     </Router>
