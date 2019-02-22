@@ -10,7 +10,7 @@
     "react-scripts": "^2.1.1"
   },
   "scripts": {
-  "mystart": "serve -s build",
+    "mystart": "serve -s build",
     "start": "react-scripts start",
     "prestart": "npm install -g serve",
     "local": "react-scripts start",

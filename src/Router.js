@@ -11,43 +11,47 @@ import FilmRequest from './FilmRequest';
 import FilmRequestWithRef from './FilmRequestWithRef';
 import MoreRefs from './MoreRefs';
 import Atform from './Atform';
+import Spring from './Spring';
 
 function RoutingExample() {
   return (
     <Router>
       <div>
         <ul>
-          <li>
+          <button>
             <Link to="/">Home</Link>
-          </li>
-          <li>
+          </button>
+          <button>
             <Link to="/parentChild">How to override from the Child/Parent</Link>
-          </li>
-          <li>
+          </button>
+          <button>
             <Link to="/defaultProps">Default Props</Link>
-          </li>
-          <li>
+          </button>
+          <button>
             <Link to="/defaultPropsWithProps">Default Props with Props</Link>
-          </li>
-          <li>
+          </button>
+          <button>
             <Link to="/topics">Routing within routing!</Link>
-          </li>
-          <li>
+          </button>
+          <button>
             <Link to="/filmRequest">Basic Frontend for OMDB</Link>
-          </li>
-          <li>
+          </button>
+          <button>
             <Link to="/filmRequestWithRefs">Basic Frontend for OMDB using Refs</Link>
-          </li>
-          <li>
+          </button>
+          <button>
             <Link to="/refExample">Ref Example</Link>
-          </li>
-          <li>
+          </button>
+          <button>
             <Link to="/moreWorkWithRefs">Working with Refs and Child components</Link>
-          </li>
-          <li>
+          </button>
+          <button>
             <Link to="/atform">Link to Automated Testing Exercise Form</Link>
-          </li>
-        </ul>
+          </button>
+          <button>
+            <Link to="/spring">Link to Spring</Link>
+          </button>        
+          </ul>
 
         <hr />
 
@@ -60,8 +64,8 @@ function RoutingExample() {
         <Route path="/filmRequestWithRefs" component={FilmRequestWithRef} />
         <Route path="/refExample" component={RefExample} />
         <Route path="/moreWorkWithRefs" component={MoreRefs} />
-        
         <Route path="/atform" component={Atform} />
+        <Route path="/spring" component={Spring} />
 
       </div>
     </Router>

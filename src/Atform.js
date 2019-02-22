@@ -123,21 +123,27 @@ if (re.test(this.state.name)){
     return (
       <div className="App">
 
- 
-
       <p>Name</p>
       <input></input>
       <p></p>
 
+      <form>
+  <input type="radio" name="gender" value="male" /> <span>Male</span>
+  <input type="radio" name="gender" value="female" /> <span>Female</span>
+  <input type="radio" name="gender" value="other" /> <span>Other</span>
+  <p/>
+</form>
 
-     <div class="dropdown">
-  <button class="dropbtn">Country</button>
-  <div class="dropdown-content">
-    <a href="#" onClick = {this.handleCountry}>United Kingdom</a>
-    <a href="#" onClick = {this.handleCountry}>France</a>
-    <a href="#" onClick = {this.handleCountry}>Germany</a>
-  </div>
+
+<div class="dropdown">
+      <button class="dropbtn">Country</button>
+        <div class="dropdown-content">
+            <a href="#" onClick = {this.handleCountry}>United Kingdom</a>
+            <a href="#" onClick = {this.handleCountry}>France</a>
+            <a href="#" onClick = {this.handleCountry}>Germany</a>
+        </div>
 </div>
+
 <p>{this.state.countrySelected}</p>
 
       <p>Email here</p>
