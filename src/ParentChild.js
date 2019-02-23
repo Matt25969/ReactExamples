@@ -23,8 +23,7 @@ class ParentChild extends Component {
     render() {
       return (
         <div>
-          <h2>Parent / Child relationhip</h2>
-  
+          <h2>ParentChild.js</h2>
           <Child data={this.state.data} passedFunction={this.updateState} />
         </div>
       );

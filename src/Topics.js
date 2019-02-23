@@ -9,7 +9,7 @@ import Topic from './Topic'
 function Topics({ match }) {
     return (
       <div>
-        <h2>Topics</h2>
+        <h2>Topics.js</h2>
         <p>This section also starts to work with match</p>
         <ul>
           <li>

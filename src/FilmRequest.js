@@ -36,13 +36,11 @@ class FilmRequest extends Component {
         }
     }
 
-
-
     render() {
-
 
         return (
             <div>
+                <h2>FilmRequest.js</h2>
                 <p>Enter your API Key for OMDB Here</p>
                 <input type="text" onChange={this.updateApiKey}/>
 <p>Enter the name of the film yo uare searching for here</p>

@@ -40,8 +40,6 @@ handleCountry = (event) => {
     country: event.currentTarget.innerHTML
   });
 
-
-
 }
 
 clickHandle = () => {
@@ -81,11 +79,7 @@ if (re.test(this.state.name)){
         result: "Success!"
       });
 
-
-
-
     }else{
-
 
       this.setState({
         dupeValid: "The passwords do not match",
@@ -93,7 +87,6 @@ if (re.test(this.state.name)){
       });
 
     }
-
 
   }else{
 
@@ -103,7 +96,6 @@ if (re.test(this.state.name)){
     });
 
   }
-
 
 }else{
 
@@ -115,9 +107,7 @@ if (re.test(this.state.name)){
 
     }
 
-
 }
-
 
   render() {
     return (

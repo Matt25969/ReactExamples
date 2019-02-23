@@ -9,7 +9,7 @@ class Spring extends Component {
     super(props);
     this.state = {
 
-
+      message:"Default Message"
     }
   }
 
@@ -35,16 +35,13 @@ class Spring extends Component {
     return (
 
       <div>
-        <p>change one</p>
 
-    
+        <h2>Spring.js</h2>
+        <p>change one</p>
 
         <button onClick={this.makeRequest} >Click me</button>
 
-        <p>
-
-        </p>
-
+        <p>{this.state.message}</p>
 
       </div>
     );

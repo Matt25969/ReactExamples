@@ -4,6 +4,7 @@ class Child extends Component {
   render() {
     return (
       <form>
+        <h2>Child.js</h2>
         <h1>{this.props.data}</h1>
         <p>When the button below is clicked the function that is passed from the parent is called </p>
         <button onClick={this.props.passedFunction}>

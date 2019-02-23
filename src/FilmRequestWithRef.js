@@ -23,13 +23,11 @@ class FilmRequestWithRef extends Component {
         }
     }
 
-
-
     render() {
-
 
         return (
             <div>
+                <h2>FilmRequestWithRef.js</h2>
                 <h1>Using Refs</h1>
                 <p>Enter your API Key for OMDB Here</p>
                 <input type="text" ref={(input) => this.apiInput = input} />

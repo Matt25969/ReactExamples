@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
 
-
 class MoreRefs extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             data: ''
-
         }
     }
 
     render() {
 
-
         return (
             <div>
+                <p>MoreRefs.js</p>
                 <MoreRefsChild inputref={el => this.inputElement = el} />
             </div>
         );
     }
-
 
 }
 
@@ -32,7 +29,6 @@ class MoreRefsChild extends Component {
         super(props);
         this.state = {
             data: ''
-
         }
     }
 
@@ -40,10 +36,10 @@ class MoreRefsChild extends Component {
 
         return (
             <div>
+                <p>MoreRefsChild Component</p>
                 <input ref={this.props.inputRef} />
             </div>
         );
     }
-
 
 }

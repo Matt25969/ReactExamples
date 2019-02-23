@@ -17,6 +17,7 @@ function RoutingExample() {
   return (
     <Router>
       <div>
+      <h2>Router.js</h2>
         <ul>
           <button>
             <Link to="/">Home</Link>
@@ -52,7 +53,6 @@ function RoutingExample() {
             <Link to="/spring">Link to Spring</Link>
           </button>        
           </ul>
-
         <hr />
 
         <Route exact path="/" component={Home} />
@@ -95,11 +95,10 @@ class RefExample extends Component {
   render() {
     return (
       <form>
+        <h2>RefExample Component</h2>
         <input type="text" value={this.state.data} onChange={this.updateState} ref={(input) => this.textInput = input} />
         <h4>{this.state.data}</h4>
-        <button onClick={this.clearInput}>
-          CLEAR
-          </button>
+        <button onClick={this.clearInput}>Clear</button>
       </form>
     );
   }
